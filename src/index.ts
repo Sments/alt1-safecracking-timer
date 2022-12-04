@@ -38,7 +38,7 @@ setInterval(() => {
 
     if (useTooltip) {
         if (current.length > 0) {
-            alt1.setTooltip(`${current.map(entry => `[(${entry.location}): ${entry.note}]`).join(', ')} are ready to be cracked again`);
+            alt1.showNotification(`${current.map(entry => `{entry.location}`, `{entry.note}`, 'are ready to be cracked again');
             tooltipOpen = true;
         } else {
             if (tooltipOpen) {
