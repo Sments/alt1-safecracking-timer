@@ -28,17 +28,9 @@ let index = Number(localStorage.getItem('currentIdx')) || 0;
 
 let tooltipOpen = false;
 
-function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
-
 setInterval(() => {
 
-let tooltipText = "are ready!";
+let tooltipText = "ready!";
 let result = tooltipText.fontcolor("green");
 
     const current = safeLocations.map(entry => {
@@ -50,11 +42,8 @@ let result = tooltipText.fontcolor("green");
 
     if (useTooltip) {
         if (current.length > 0) {
-            alt1.setTooltip(`${current.map(entry => `(${entry.location}): ${entry.note}`).join(', ')} "+tooltipText+"`);
+            alt1.setTooltip(`${current.map(entry => `(${entry.location})[${entry.note}]`).join(', ')} ${tooltipText}`);
             tooltipOpen = true;
-			sleep(5000);
-			alt1.clearTooltip();
-			tooltipOpen = false;
         } else {
             if (tooltipOpen) {
                 alt1.clearTooltip();
